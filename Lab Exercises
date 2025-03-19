@@ -2,4 +2,22 @@
 IOD Software Engineering
 ![Lab1 Exercise](https://github.com/user-attachments/assets/5ac6c3ca-43a2-4097-bae0-c209c4a20d6f)
 
-![Lab2 Exercise](https://github.com/user-attachments/assets/930de51b-e1b5-4bc6-b5a4-e59b177e0432)
+
+Lab 2 Exercise
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lab 2 Exercise</h1>
+    <ol>
+        <li><p>Create new folder in VSCode called <b>"Module1"</b></p></li>
+        <li><p>In the terminal "Git Bash", use <b>"cd Module1"</b>, then <b>"mkdir LabExercises"</b>, then <b>"cd LabExercises"</b>, and lastly <b>"touch exercise2.html"</b></p></li>
+        <li><p>Once navigated to the new HTML file "exercise2.html", the "! + tab" or "! + enter" command will generate a basic HTML skeleton.</p></li>
+        <li><p>Finally, after <b>Go Live</b> is installed and clicked, the final result will show on a new web page!</p></li>
+    </ol>
+</body>
+</html>
