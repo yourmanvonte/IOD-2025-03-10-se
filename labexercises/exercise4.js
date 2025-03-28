@@ -6,6 +6,8 @@ console.log(3 * 6);
 
 console.log(22 / 4);
 
+console.log(-50 - 25);
+
 const newName = "Sharkeisha";
     console.log("Hello " + newName);
 
