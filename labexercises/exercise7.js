@@ -21,4 +21,4 @@ const base = 5;
 const height = 10;
 const area = calculateTriangleArea(base, height);
 console.log("The area of the triangle is: " + area);
-// the output will result in "The area of the triangle is: 25". 
+// the output will result in "The area of the triangle is: 25"
