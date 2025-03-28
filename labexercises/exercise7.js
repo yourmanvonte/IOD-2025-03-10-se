@@ -1,24 +1,47 @@
-console.log(5 + 1); //adding 5 + 1. Result = 6
+function add(a, b) {
+    return a + b;
+}
 
-console.log(10 -8); //subtractng 10 - 8. Result = 2
+console.log(add(5, 1)); //adding 5 + 1. Result = 6
 
-console.log(3 * 6); //multiplying 3 * 6. Result = 18
+function subtract(a, b) {
+    return a - b;
+}
 
-console.log(22 / 4); //dividing 22 by 4. Result = 5.5
+console.log(subtract(10, 8)); //subtractng 10 - 8. Result = 2
 
-console.log(-50 - 25); //subtracting -50 from 25. Result = -75
+function multiply(a, b) {
+    return a * b;
+}
 
-//declaring a variable called newName and assigning it the value of "Sharkeisha"
-const newName = "Sharkeisha";
-    console.log("Hello " + newName); //console.log will return "Hello Sharkeisha"
+console.log(multiply(3, 6)); //multiplying 3 * 6. Result = 18
 
-//declaring a function called calculateTriangleArea that takes in two parameters, base and height
+function division(a, b) {
+    return a / b;
+}
+
+console.log(division(22, 4)); //dividing 22 by 4. Result = 5.5
+
+function negative(a, b) {
+    return a - b;
+}
+
+console.log(negative(-50, -25)); //subtracting -50 from 25. Result = -25
+
+
+function printHello(name) {
+    console.log("Hello " + name); //creates a function printHello and passes in the parameter name.
+}
+
+printHello("Sharkeisha"); // prints Hello Sharkeisha
+
     function calculateTriangleArea(base, height) {
         return 0.5 * base * height;
     }
+    //declaring a function called calculateTriangleArea that takes in two parameters, base and height
+
 
 const base = 5;
 const height = 10;
 const area = calculateTriangleArea(base, height);
-console.log("The area of the triangle is: " + area);
-// the output will result in "The area of the triangle is: 25"
+console.log("The area of the triangle is: " + area); // the output will result in "The area of the triangle is: 25".
