@@ -1,15 +1,38 @@
-console.log(5 + 1);
+function add(a, b) {
+    return a + b;
+}
 
-console.log(10 -8);
+console.log(add(5, 1)); 
 
-console.log(3 * 6);
+function subtract(a, b) {
+    return a - b;
+}
 
-console.log(22 / 4);
+console.log(subtract(10, 8));
 
-console.log(-50 - 25);
+function multiply(a, b) {
+    return a * b;
+}
 
-const newName = "Sharkeisha";
-    console.log("Hello " + newName);
+console.log(multiply(3, 6));
+
+function division(a, b) {
+    return a / b;
+}
+
+console.log(division(22, 4));
+
+function negative(a, b) {
+    return a - b;
+}
+
+console.log(negative(-50, -25));
+
+function printHello(name) {
+    console.log("Hello " + name);
+}
+
+printHello("Sharkeisha");
 
     function calculateTriangleArea(base, height) {
         return 0.5 * base * height;
