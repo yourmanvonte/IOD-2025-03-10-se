@@ -1,0 +1,86 @@
+body {
+    background-color: antiquewhite;
+}
+
+article {
+    display: flex;
+}
+
+#title {
+    text-align: center;
+    color: black;
+    letter-spacing: 5px;
+    font-size: 40px;
+}
+
+section {
+    background-color: #e5cdf4;
+    margin: 5px;
+    border: 4px solid burlywood;
+    padding: 5px;
+}
+
+#about {
+    text-align: center;
+    background-color: gray;
+}
+
+.about-me {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.intro {
+    border-bottom: solid 2px rgb(113, 116, 115);
+    border-radius: 3%;
+    padding-bottom: 2px;
+}
+
+#contact {
+    text-align: center;
+    background-color: gray;
+}
+
+.contact-info {
+    border-bottom: solid 2px rgb(113, 116, 115);
+    border-radius: 3%;
+    padding-bottom: 2px;
+}
+
+#skills {
+    text-align: center;
+    background-color: gray;
+}
+
+ul {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 2;
+    margin-bottom: 15px;
+}
+
+#experience {
+    border-bottom: 1px solid gray;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.experience {
+    font-size: large;
+}
+
+div {
+    border-bottom: 1px solid rgb(113, 116, 115);
+    border-radius: 3%;
+}
+
+a {
+    font-size: 18px;
+}
+
+#education {
+    text-align: center;
+    background-color: gray;
+}
