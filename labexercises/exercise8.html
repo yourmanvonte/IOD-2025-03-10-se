@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>devsInc Dice</title>
+    <link rel="stylesheet" href="diceproject.css">
+  </head>
+  <body>
+    <h1>devsInc Dice</h1>
+    <p>devsInc is your key go-to landing page in supporting tabletop games from home!</p>
+    <p>Enjoy our Dice Generator here which includes both a 6 and 10 faces dices!</p>
+    <div class="dice-group">
+      <h2 id="dice1" class="container">6 Face Dice</h2>
+      <button onclick="rollDice(6)" class="container">Roll 6-Face Dice</button>
+    </div>
+    <div class="dice-group">
+      <h2 id="dice2" class="container">10 Face Dice</h2>
+      <button onclick="rollDice(10)" class="container">10-Face Dice</button>
+    </div>
+    <p id="result"></p>
+    <button onclick="refreshDice()" id="refresh">Refresh</button>
+  <script src="diceproject.js"></script>
+</body>
+</html>

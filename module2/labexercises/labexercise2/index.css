@@ -1,0 +1,117 @@
+/* I. Selectors */
+/* Put styles for questions 1.1, 1.2, 1.3 and 1.4 here */
+article {
+    margin: 20px 0;
+    padding: 20px 0;
+    border: 1px solid black;
+}
+
+.style-me1 {
+    color: red;
+}
+
+#style-me2 {
+    color: blue;
+}
+
+section p:nth-of-type(3)#style-me2 {
+    color: purple;
+}
+
+/* Put styles for questions 2.1 and 2.2 here */
+div p {
+    background: red;
+}
+
+section.my-children-are-styled > p, section.my-descendants-are-styled > p {
+    background: lightgreen;
+}
+
+/* II. Box model and common properties */
+/* Put styles for questions 1-8 here */
+
+/* Pt2. Styles were inputted on divtools in the Live Server instead */
+
+/* III. Positioning */
+.position-absolute {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: green;
+}
+
+.position-relative {
+    position: relative;
+    background-color: blueviolet;
+}
+
+.position-sticky {
+    position: sticky;
+    background-color: brown;
+    top: 10px;
+}
+
+/* IV. Styling text */
+/* Put styles for questions 1-10 here */
+.text-style {
+    color: rgb(255, 0, 242);
+    font-size: 1.2rem;
+    line-height: 3rem;
+    font-weight: bold;
+    font-family: "Gidole", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    letter-spacing: 3px;
+    word-spacing: 10px;
+    text-transform: capitalize;
+    text-decoration: dashed;
+}
+
+/* V. Styling links */
+/* Put styles for questions 1-3 here */
+a, a:link {
+    color: red;
+    font-size: large;
+    font-weight: 300;
+    text-decoration: dotted;
+}
+
+a:hover {
+    color: green;
+    text-decoration: dashed;
+}
+
+a:active {
+    color: purple;
+    text-decoration: dotted;
+}
+
+a:focus {
+    color: blue;
+    text-decoration: line-through;
+}
+
+a:visited {
+    color: gold;
+    font-style: italic;
+}
+
+/* VI. calc() */
+/* Put styles for questions 1-3 here */
+.calc-style {
+    width: 100vw;
+    background-color: orange;
+    width: calc(100vw - 100px);
+}
+
+.fixed-width-col {
+    width: 350px;
+    display: inline-block;
+}
+
+.fluid-col {
+    display: inline-block;
+    width: calc(100vw - 350px);
+}

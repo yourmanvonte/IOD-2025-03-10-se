@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+  </head>
+
+<body>
+  <header>
+    <nav>
+      <!-- works like <a href="/index.html">Home</a> -->
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <form method="POST" action="https://127.0.0.1:5500/form">
+      <div>
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Enter first name" required>
+      </div>
+      <div>
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Enter last name" required>
+      </div>
+      <div>
+        <label for="code">Select your favourite coding language:
+          <input type="radio" name="code" value="HTML">
+          HTML
+        </label>
+        <label for="code">
+          <input type="radio" name="code" value="CSS">
+          CSS
+        </label>
+        <label for="code">
+          <input type="radio" name="code" value="JavaScript">
+          JavaScript
+        </label>
+      </div>
+      <div> 
+        <label for="vehicle">Select your type of vehicle:
+          <input type="checkbox" name="vehicle" value="large-suv">
+          Large SUV
+        </label>
+        <label for="vehicle">
+          <input type="checkbox" name="vehicle" value="mid-size">
+          Mid-size
+        </label>
+        <label for="vehicle">
+          <input type="checkbox" name="vehicle" value="sedan">
+          Sedan
+        </label>
+      </div>
+      <div>
+        <label for="brand">Your car brand:</label>
+          <select id="brand" name="brand" required>
+            <option value="">Select here</option>
+            <option value="chevy">Chevy</option>
+            <option value="ford">Ford</option>
+            <option value="toyota">Toyota</option>
+            <option value="lexus">Lexus</option>
+            <option value="cadillac">Cadillac</option>
+            <option value="subaru">Subaru</option>
+          </select>
+      </div>
+      <button type="submit">Submit form</button>
+    </form>
+  </main>
+
+  <footer>Copyright &copy; 2024</footer>
+</body>
+
+</html>
