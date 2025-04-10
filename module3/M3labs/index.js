@@ -120,3 +120,163 @@ if (a + b > 10 ) {
 } else {
     result += 'less than or equal to 10';
 }
+
+
+// Q5
+//original
+function getGreeting(name) {
+    return 'Hello ' + name + '!';
+    }
+
+// a) function expression syntax
+const greeting = function (name)  {
+    return 'Hello ' + name + '!'; // standard function expression syntax
+}
+
+console.log(greeting("Devonte"));
+
+// b) arrow function syntax
+const greet = (name) => {
+    return `Hello ${name}!`; // this prints the same result but is done with a template literal
+}
+console.log(greet("Devonte"));
+
+// Q6
+const westley = {
+    name: 'Westley',
+    numFingers: 5
+    }
+
+    const rugen = {
+    name: 'Count Rugen',
+    numFingers: 6
+    }
+
+    const inigo = {
+        firstName: 'Inigo',
+        lastName: 'Vanity', // added last name property
+        greeting(person) {
+            let greeting = `Hello ${person.name}, my name is ${this.firstName} ${this.lastName}. `; // added last name
+            console.log(greeting + this.getCatchPhrase(person));
+        }, 
+        getCatchPhrase(person) {
+            if (rugen.numFingers) { // accessing the rugen object and numFingers property 
+                return "I do not mean to pry, but you don't by any chance happen to have six fingers on your right hand?";
+            } else {
+                  return 'Nice to meet you.';
+            }
+        }, 
+        // arrow syntax function with conditional statement
+        getCatchPhrase: (person) => {
+            if (rugen.numFingers) {
+                return "I do not mean to pry, but you don't by any chance happen to have six fingers on your right hand?"
+            } else {
+                return 'Nice to meet you.';
+            }
+        }
+    };
+
+    inigo.greeting(westley)
+    inigo.greeting(rugen)
+    console.log(greeting);
+
+// Q7
+const basketballGame = {
+    score: 0,
+    fouls: 0, //tracks fouls
+    freeThrow() {
+        this.score++;
+        return this;
+    },
+    basket() {
+        this.score += 2;
+        return this;
+    },
+    threePointer() {
+        this.score += 3;
+        return this;
+    },
+    foulCount() {
+        this.fouls++;
+        return this;
+    },
+    halfTime() {
+        console.log('Halftime score is '+this.score);
+        console.log('Fouls: '+this.fouls);
+        return this;
+    },
+    fullTime() {
+        console.log('Final score is '+this.score);
+        console.log('Fouls: '+this.fouls);
+        return this;
+    }
+};
+
+    //modify each of the above object methods to enable function chaining as below:
+    basketballGame.basket().foulCount().freeThrow().freeThrow().basket().threePointer().halfTime().fullTime();
+
+// Q8
+const sydney = {
+    name: 'Sydney',
+    population: 5_121_000,
+    state: 'NSW',
+    founded: '26 January 1788',
+    timezone: 'Australia/Sydney'
+    };
+    for (let key in sydney) {
+        console.log(sydney);
+    };
+    // new object
+    const newYork = {
+        name: 'New York',
+        population: 800_000,
+        state: 'New York',
+        founded: '1 January 1368',
+        timezone: 'Eastern'
+    };
+    console.log(newYork);
+
+// Q9
+let teamSports = ['Hockey', 'Cricket', 'Volleyball'];
+console.log(teamSports); // orginial remains independent here
+
+let moreSports = teamSports.push('Football'); // .push() adds 'Football' to the end of the array
+teamSports.unshift('Basketball') // .unshift() adds 'Basketball' to the beginning of the array
+
+let dog1 = 'Bingo';
+let dog2 = dog1;
+dog1 = 'Django';
+console.log(dog1);
+
+let cat1 = { name: 'Fluffy', breed: 'Siberian' };
+let cat2 = cat1;
+console.log(cat2); // original remanins independent here
+
+cat1.name = 'Roscoe';
+console.log(cat1);
+
+console.log(teamSports); // all console.log prints have changed from their original due to let reassignments
+
+
+// Q10
+class Person { // updated original constructor to a class function
+    constructor (name, age) {
+        this.name = name;
+        this.age = age;
+        this.human = true;
+    };
+    canDrive() {
+        if (this.age >= 16) { // age must be 16 or greater to drive
+            return `${this.name} can drive.`
+        } else {
+            return `${this.name} cannot drive.`
+        }
+    }
+};
+
+    let person1 = new Person('Bill', 13);
+    let person2 = new Person('Jim', 25);
+    let person3 = new Person('Kate', 43)
+    console.log(person1.canDrive()); // prints Bill cannot drive
+    console.log(person2.canDrive()); // prints Jim can drive
+    console.log(person3.canDrive()); // prints Kate can drive
