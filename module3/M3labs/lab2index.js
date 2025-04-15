@@ -129,4 +129,63 @@ console.log(currencyOperation(1.50, 0.50, '-')); // 1
 console.log(currencyOperation(0.25, 0.25, '*')); // 0.06
 console.log(currencyOperation(1.00, 0.20, '/')); // 5
 
-// Q6
+// Q6 
+const colors = ['red', 'green', 'blue', 'yellow', 'orange', 'red', 'blue', 'yellow'];
+const testScores = [55, 84, 97, 63, 55, 32, 84, 91, 55, 43];
+
+const unique = (duplicatesArray) => { // declares a unique arrow function with the parameter duplicatesArray passed in
+  return Array.from(new Set(duplicatesArray)); // creates a Set that removes dupes and then converts the Set back into an array
+}
+
+console.log(unique(colors)); // ['red', 'green', 'blue', 'yellow', 'orange']
+console.log(unique(testScores)); // [55, 84, 97, 63, 32, 91, 43]
+
+// Q7
+const books = [
+    { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
+    { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
+    { id: 3, title: '1984', author: 'George Orwell', year: 1949 },
+    { id: 4, title: 'Brave New World', author: 'Aldous Huxley', year: 1932 },
+    { id: 5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', year: 1951 },
+];
+
+const getBookTitle = (bookId) => { 
+    const book = books.find(book => book.id === bookId); //Finds the book with the matching id
+    return book.title; // Returns only the book title by its matching id
+}
+console.log(getBookTitle(4)); // Brave New World
+
+const getOldBooks = () => {
+    const book = books.filter(book => book.year < 1950); // filters through by books years and returns book object if less than year 1950
+    return book;
+}
+console.log(getOldBooks()); // 3 objects under year 1950 get printed to console
+
+const addGenre = () => {
+    return books.map(book => ({ // maps through the books to transform the original into a new object 
+        ...book, // spread operator copies all exisiting properties and values
+        genre: 'classic' // adds new genre property at the end of the object
+    }));
+};
+console.log(addGenre()); // genre: 'classic' gets added to the end of all objects
+
+const getTitles = (authorInitial) => {
+    return books.filter(book => book.author.startsWith(authorInitial)).map(book => book.title);
+}
+// Filter books by author initiaal with the .startsWith()
+// Map then extracts the title property and their values
+
+console.log(getTitles('G')); // '1984'
+console.log(getTitles('F')); // 'The Great Gatsby'
+
+// for loop to get latestBook
+const latestBook = () => {
+    let latest = {year: 0}; // sets an easy low year book object
+    books.forEach(book => { // loops through each book in the books array
+        if (book.year > latest.year) { 
+            latest = book;
+        } // if book year is greater than latest year, it will loop update and loop to the next recent year
+    });
+    return latest;
+}
+console.log(latestBook()); // book object with year 1960 is printed to console
