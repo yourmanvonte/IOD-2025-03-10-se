@@ -189,3 +189,75 @@ const latestBook = () => {
     return latest;
 }
 console.log(latestBook()); // book object with year 1960 is printed to console
+
+
+// Q8
+const phoneBookABC = new Map() //an empty map to begin with
+phoneBookABC.set('Annabelle', {number: '0412312343'});
+phoneBookABC.set('Barry', {number: '0433221117'});
+phoneBookABC.set('Caroline', {number: '0455221182'}); // logs the 3 new objects created with map and set
+phoneBookABC.set('Caroline', {number: '0254646498'}); // overwrites the previous value(phone number) of Carloline
+
+const phoneBookDEF = new Map();
+phoneBookDEF.set(
+    'Daniel',
+    { 
+    number: '0412354684',
+    type: 'mobile'
+});
+
+phoneBookDEF.set(
+    'Elizabath', 
+    {
+    number: '0433221147',
+    type: 'mobile'
+});
+
+phoneBookDEF.set(
+    'Frank', {
+    number: '0455221182',
+    type: 'mobile'
+}); // logs the 3 new objects created with map and set
+
+const printPhoneBook = (contacts) => {
+    for (const [name, details] of contacts) {
+        console.log(`${name}: ${details.number}`);
+    }
+}
+printPhoneBook(phoneBookDEF); // prints the DEF phonebook to the console
+printPhoneBook(phoneBookABC); // prints the ABC phonebook to the console
+
+// Q9
+const salaries = { //declares an objects of salaries with salary values
+    "Timothy" : 35000,
+    "David" : 25000,
+    "Mary" : 55000,
+    "Christina" : 75000,
+    "James" : 43000
+    };
+
+const sumSalaries = (salaries) => {
+    let total = 0;
+    for (let salary of Object.values(salaries)) {
+        total += salary;
+    }
+    return total;
+}
+// an initial total varial is declared and set to 0
+// for Loop iterates through the values of the salaries object using object.values() method
+// then the total is updated by adding each salary to the total variable until we get the sum
+
+console.log(sumSalaries(salaries)); // 233000 prints to the console
+
+const topEarner = (salaries) => {
+    let maxSalary = 0; // sets an initial maXSalary variable to 0
+    let topEarner = ''; // sets an initial topEarner variable to an empty string
+    for (const [name, salary] of Object.entries(salaries)) { // iterates through the entries of the object
+        if (salary > maxSalary) { // if salary is greater than maxSalary, then the maxSalary will be updated to the current salary
+            maxSalary = salary;
+            topEarner = name; // topEarner will be updated to the name of the current entry
+        }
+    }
+    return topEarner;
+}
+console.log(topEarner(salaries)); // Christina prints to the console as the top earner
