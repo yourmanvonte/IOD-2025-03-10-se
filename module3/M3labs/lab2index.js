@@ -261,3 +261,48 @@ const topEarner = (salaries) => {
     return topEarner;
 }
 console.log(topEarner(salaries)); // Christina prints to the console as the top earner
+
+
+// Q10
+const today = new Date();
+console.log('Current time is ' + today.toLocaleTimeString());
+
+console.log(today.getHours() + ' hours have passed so far today');
+
+console.log((today.getHours() * 60 + today.getMinutes()) + ' minutes have passed today'); 
+// getMinutes only returns the minutes of the current hour, until you multiply the getHours by 60 to get the total minutes of the current hour
+
+console.log((today.getHours() * 3600 + today.getMinutes() * 60 + today.getSeconds()) + ' seconds have passed today'); 
+// you have to multiply getHours by 3600 to get the total seconds of the hour, then repeat the process from the previous line of code
+
+// Calculate age function
+const calculateExactAge = (birthDate) => {
+    const today = new Date();
+    const birth = new Date(birthDate); // converts the birthDate string into a date object
+
+    let years = today.getFullYear() - birth.getFullYear(); // gets the current year and subtracts the birth year from it
+    let months = today.getMonth() - birth.getMonth(); // gets the current month and subtracts the birth month from it
+    let days = today.getDate() - birth.getDate(); // gets the current date and subtracts the birth date from it
+
+    // Adjusts for negative values in month and days
+    if (months < 0) {
+        years--; // if months is negative, we subtract 1 from the years
+        months += 12; // adds 12 months to the current month to get the correct number of months
+    }
+    if (days < 0) {
+        months--; // if days is negative, we subtract 1 from the months
+        const previousMonth = new Date(today.getFullYear(), today.getMonth() - 1, 0);  // creates a new date object for the previous month
+        days += previousMonth.getDate(); // adds the number of days in the previous month to the current days
+    }
+    return `I am ${years} years, ${months} months, and ${days} days old.`; // returns the age in years, months, and days
+}
+console.log(calculateExactAge('1997-05-09')); // I am 27 years, 11 months, and 11 days old
+
+// Calculate difference between dates function
+const daysInBetween = (date1, date2) => {
+    const startDate = new Date(date1); // converts the date1 string into a date object
+    const endDate = new Date(date2); // converts the date2 string into a date object
+    const timeDiff = Math.abs(endDate - startDate); // gets the absolute difference between the two dates in milliseconds
+    return Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // converts milliseconds to days and rounds up to the nearest whole number
+}
+console.log(daysInBetween('2023-01-01', '2023-12-31')); // 364 days between the two dates
