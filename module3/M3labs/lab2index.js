@@ -35,18 +35,19 @@ animals.unshift('Hyena', 'Meerkat'); // unshift() adds hyena and meerkat to the 
 console.log(animals.sort()); // [ 'Elephant', 'Giraffe', 'Hyena', 'Lion', 'Meerkat', 'Tiger' ]
 // sort() in this instance with strings will sort the array alphabetically but can be used in a variety of cases
 
-const replaceMiddleAnimal = (newValue) => { // used arrow syntax function for replaceMiddleAnimal function
+const replaceMiddleAnimal = (newValue) => { 
     let index = 2; // targets index position 2 in the array "Hyena"
     animals.splice(index, 1, newValue); // target animal and use splice method to target index, 1 element to be replaced, then input newValue
     return animals;
 }
 console.log(replaceMiddleAnimal('Monkey')); // [ 'Elephant', 'Giraffe', 'Monkey', 'Lion', 'Meerkat', 'Tiger' ] 'Moneky' is now in the middle
 
-function findMatchingAnimals(beginsWith) { // declares a findMatchingAnimals function with the beginsWith parameter passed in
+function findMatchingAnimals(beginsWith) { 
     return animals.filter(animal => // call the filter() method on a callback function to loop through each animal in the array and return it
         animal.toLowerCase().startsWith(beginsWith.toLowerCase())        
     ); 
-}
+};
+
 // converts animal to lowercase and uses the startWith() and toLowerCase() methods to compare for case-insensitivity.
 console.log(findMatchingAnimals('L')); // Lion
 console.log(findMatchingAnimals('lion')); // Lion
