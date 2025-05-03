@@ -1,6 +1,10 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #e3f2fd;
+    background: linear-gradient(to bottom right, #ffff99 0%, #ffccff 100%);
+    display: flex;
+    align-items: left;
+    margin: none;
+    gap: 20px;
 }
 
 .card {
@@ -16,4 +20,23 @@ padding: 0 0 10px 0;
 .card-description {
 font-weight: 400;
 font-size: 2em
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    border-left: hidden;
+    border-right: hidden;
+    padding: 15px;
 }
