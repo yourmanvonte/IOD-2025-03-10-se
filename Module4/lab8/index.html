@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Luxon DateTime Formatting</title>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.5.0/build/global/luxon.min.js">
+    </script> <!-- reference Luxon library -->
+</head>
+
+<body>
+    <h2>Luxon Date</h2>
+    <div id="displayLuxon"></div>
+
+    <script type="text/javascript">
+        // 1) Calculate the number of days between two date using Luxon
+        (function () { 
+           const DateTime = luxon.DateTime;
+
+           const birthDate = DateTime.fromFormat("05/09/1997", "MM/dd/yyyy");
+           const currentDate = DateTime.now();
+
+           const daysDiff = currentDate.diff(birthDate, "days").days;
+           const result = `Number of days between ${Math.floor(daysDiff)} days`;
+
+           document.getElementById("displayLuxon").innerHTML = result; // Result of 10223 is printed to the page
+        })(); 
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
