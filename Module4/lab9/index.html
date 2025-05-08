@@ -12,50 +12,88 @@
 <body>
     <!-- Prepare a DOM with a defined width and height for ECharts -->
     <div id="main" style="width: 900px;height:600px;"></div>
+    <div id="pie" style="width: 900px; height: 600px; margin-top: 30px;"></div>
     <script type="text/javascript">
         const myChart = echarts.init(document.getElementById('main'));
+    const pieChart = echarts.init(document.getElementById('pie'));
 
-        // Fetch product data from the API
-        fetch('https://fakestoreapi.com/products')
-            .then(response => response.json())
-            .then(data => {
-                
-                // Group products by category
-                const categoryCounts = {};
-                data.forEach(product => {
-                    const category = product.category;
-                    categoryCounts[category] = (categoryCounts[category] || 0) + 1;
-                });
+    fetch('https://fakestoreapi.com/products')
+      .then(response => response.json())
+      .then(data => {
+        // Bar Chart: Category Counts
+        const categoryCounts = {};
+        data.forEach(product => {
+          const category = product.category;
+          categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+        });
 
-                // Prepare data for the chart
-                const categories = Object.keys(categoryCounts);
-                const counts = Object.values(categoryCounts);
+        // Convert the categoryCounts object into arrays for the bar chart
+        const categories = Object.keys(categoryCounts);
+        const counts = Object.values(categoryCounts);
 
-                // Sets the eChart options
-                const options = {
-                    title: { text: 'Products per Category' },
-                    tooltip: {},
-                    xAxis: {
-                        type: 'category',
-                        data: categories
-                    },
-                    yAxis: {
-                        type: 'value',
-                        name: 'Product Count'
-                    },
-                    series: [{
-                        name: 'Products',
-                        type: 'bar',
-                        data: counts
-                    }]
-                };
+        // Set up the bar chart options and styling
+        const barOptions = {
+          title: { text: 'Products per Category' },
+          tooltip: {},
+          xAxis: { type: 'category', data: categories },
+          yAxis: { type: 'value', name: 'Product Count' },
+          series: [{
+            name: 'Products',
+            type: 'bar',
+            data: counts
+          }]
+        };
 
-                // Render the chart with the fetched data
-                myChart.setOption(options);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
+        myChart.setOption(barOptions);
+
+        // Pie Chart: Price Brackets
+        const priceBrackets = {
+          '< $50': 0,
+          '$50–$100': 0,
+          '$100–$150': 0,
+          '> $150': 0
+        };
+
+        // Loop through the products and categorize them into price brackets
+        data.forEach(product => {
+          const price = product.price;
+          if (price < 50) priceBrackets['< $50']++;
+          else if (price < 100) priceBrackets['$50–$100']++;
+          else if (price < 150) priceBrackets['$100–$150']++;
+          else priceBrackets['> $150']++;
+        });
+
+        // Convert the priceBrackets object into an array of objects for the pie chart
+        const pieData = Object.entries(priceBrackets).map(([label, value]) => ({
+          name: label,
+          value: value
+        }));
+
+        // Set up the pie chart options and styling
+        const pieOptions = {
+          title: { text: 'Products by Price Bracket', left: 'center' },
+          tooltip: { trigger: 'item' },
+          legend: { bottom: 10, left: 'center' },
+          series: [{
+            name: 'Price Bracket',
+            type: 'pie',
+            radius: '50%',
+            data: pieData,
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          }]
+        };
+
+        pieChart.setOption(pieOptions);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
     </script>
 </body>
 
