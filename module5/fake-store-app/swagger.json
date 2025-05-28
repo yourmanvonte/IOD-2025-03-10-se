@@ -1,0 +1,20 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Fake Store API Proxy",
+    "version": "1.0.0"
+  },
+  "basePath": "/api",
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "Get all products",
+        "responses": {
+          "200": {
+            "description": "A list of products"
+          }
+        }
+      }
+    }
+  }
+}

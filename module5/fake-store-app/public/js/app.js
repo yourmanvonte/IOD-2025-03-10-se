@@ -1,3 +1,12 @@
+    
+    async function fetchProducts() {
+      const res = await fetch("api/products");
+      const data = await res.json();
+      allProducts = data;
+      populateCategoryFilter(data);
+      renderProducts(data);
+    };
+    
     const productGrid = document.getElementById("productGrid");
     const categoryFilter = document.getElementById("categoryFilter");
     const searchInput = document.getElementById("searchInput");
@@ -10,14 +19,6 @@
       "jewelery": "fa-solid fa-gem",
       "men's clothing": "fa-solid fa-mars",
       "women's clothing": "fa-solid fa-venus"
-    };
-
-    async function fetchProducts() {
-      const res = await fetch("https://fakestoreapi.com/products");
-      const data = await res.json();
-      allProducts = data;
-      populateCategoryFilter(data);
-      renderProducts(data);
     };
 
     function populateCategoryFilter(products) {
