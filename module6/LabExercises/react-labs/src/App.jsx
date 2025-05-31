@@ -2,6 +2,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Greeting from './components/Greeting'
+import BigCats from './components/BigCats'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <p>This is a child element</p>
         <p>Welcome back to your app</p>
       </Greeting>
+      <BigCats />
     </>
   )
 }
