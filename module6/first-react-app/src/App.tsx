@@ -2,6 +2,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import FullName from './components/FullName'
+import { useState } from 'react'
+import MoodChanger from './components/MoodChanger'
 
 
 function Welcome() {
@@ -13,6 +15,8 @@ function Welcome() {
 }
 
 function App() {
+  const [mood, setMood] = useState('Happy'); 
+
   return (
     <>
       <div>
@@ -25,6 +29,7 @@ function App() {
       </div>
       <Welcome />
       <FullName first="John" last="Doe" />
+      <MoodChanger mood={mood} setMood={setMood}/>
       </>
   )
 }
