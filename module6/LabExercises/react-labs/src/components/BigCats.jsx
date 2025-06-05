@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SingleCat from "./SingleCat";
+import AddCatForm from './AddCatForm';
 
 function BigCats() {
   const initialCats = [
@@ -75,9 +76,19 @@ function BigCats() {
     setCats(initialCats);
   };
 
+  const handleAddCat = (newCat) => {
+    setCats(prevCats => [...prevCats, newCat]);
+  };
+
+  const handleDeleteCat = (idToDelete) => {
+    setCats(prevCats => prevCats.filter(cat => cat.id !== idToDelete));
+  };
+
   return (
     <div className="BigCats">
       <h2>Big Cats</h2>
+
+      <AddCatForm onAddCat={handleAddCat} />
 
       <div style={{ marginBottom: "1em"}}>
         <button onClick={sortAlphbetically}>Sort A-Z</button>
@@ -86,14 +97,16 @@ function BigCats() {
         <button onClick={resetList}>Reset List</button>
       </div>
 
-      <ul>
+       <ul>
         {cats.map((cat) => (
-          <SingleCat
-            key={cat.id}
-            name={cat.name}
-            latinName={cat.latinName}
-            image={cat.image}
-          />
+          <li key={cat.id}>
+            <SingleCat
+              name={cat.name}
+              latinName={cat.latinName}
+              image={cat.image}
+              onDelete={() => handleDeleteCat(cat.id)}
+            />
+          </li>
         ))}
       </ul>
     </div>
