@@ -4,6 +4,7 @@ import './App.css'
 import Greeting from './components/Greeting'
 import BigCats from './components/BigCats'
 import Emoji from './components/Emoji'
+import Calculator from './components/Calculator'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       </Greeting>
       <BigCats />
       <Emoji />
+      <Calculator num1={10} num2={5} />
     </>
   )
 }
