@@ -2,6 +2,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Clock from './assets/components/Clock'
+import { ClockDisplay } from './assets/components/Clock'
+import ActivityFinder from './assets/components/ActivityFinder'
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
         </a>
       </div>
       <Clock />
+      <ClockDisplay />
+      <ActivityFinder />
     </>
   )
 }

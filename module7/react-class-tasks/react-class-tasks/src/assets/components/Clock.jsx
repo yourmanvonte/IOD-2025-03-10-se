@@ -4,8 +4,13 @@ const Clock = () => {
     const [date, setDate] = useState(new Date());
 
     useEffect(() => {
-        setInterval(() => tick(), 1000);
+        const intervalId = setInterval(() => tick(), 1000);
         console.log('Clock component mounted');
+
+        return () => {
+            clearInterval(intervalId);
+            console.log('Clock component unmounted')
+        }
     }, []);
 
     const tick = () => {
@@ -21,4 +26,20 @@ const Clock = () => {
     );
 }
 
+const ClockDisplay = () => {
+    const [showClock, setShowClock] = useState(false);
+
+    const toggleClock = () => {
+        setShowClock(!showClock)
+    }
+
+    return (
+        <div className="ClockDisplay componentBox">
+            {showClock && <Clock />}
+            <button onClick={toggleClock}>Toggle Clock</button>
+        </div>
+    )
+}
+
 export default Clock;
+export  {ClockDisplay};
