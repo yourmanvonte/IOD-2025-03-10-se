@@ -1,13 +1,25 @@
-import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    return (
-        <nav className="navbar componentBox">
-            <Link to="/">Home</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/bitcoin">Bitcoin Rates</Link>
-        </nav>
-    );
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          MUI React App
+        </Typography>
+        <Button color="inherit" component={Link} to="/">
+          Home
+        </Button>
+        <Button color="inherit" component={Link} to="/login">
+          Login
+        </Button>
+        <Button color="inherit" component={Link} to="/bitcoin">
+          Bitcoin Rates
+        </Button>
+      </Toolbar>
+    </AppBar>
+  );
 };
 
 export default Navbar;
