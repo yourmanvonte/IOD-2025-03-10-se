@@ -1,6 +1,6 @@
-const calculator = require('../lib/calculator');
-const { generateId } = require('../lib/idGenerator');
-const logger = require('../lib/logger');
+const calculator = require('../models/calculator');
+const { generateId } = require('../models/idGenerator');
+const logger = require('../models/logger');
 
 
 // new route for adding two numbers
