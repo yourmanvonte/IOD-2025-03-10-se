@@ -1,3 +1,7 @@
+const dbConnect = require("./dbConnect");
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
+
 const express = require("express");
 const app = express();
 require("dotenv").config();
