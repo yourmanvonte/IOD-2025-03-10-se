@@ -1,17 +1,13 @@
-"use strict";
-const Mongoose = require("mongoose");
-// if the connection fails, try 127.0.0.1 instead of localhost below
-const uri = process.env.DB_URI || "mongodb://localhost/myFirstDatabase";
+const mongoose = require('mongoose');
 
-// Connect to MongoDB
-Mongoose.connect(uri)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((error) => console.log("MongoDB Error:" + error.message));
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.DB_URI);
+    console.log(`Connected to DB: ${conn.connection.name}`);
+  } catch (err) {
+    console.error("MongoDB connection error:", err.message);
+    process.exit(1);
+  }
+};
 
-// Get the default connection
-const db = Mongoose.connection;
-
-// Bind connection to error event (to get notification of connection errors)
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-
-exports.Mongoose = Mongoose;
+module.exports = connectDB;

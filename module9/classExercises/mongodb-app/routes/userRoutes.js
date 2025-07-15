@@ -1,15 +1,8 @@
-let express = require("express");
-let router = express.Router();
-let Controllers = require("../controllers"); // index.js
+const express = require("express");
+const router = express.Router();
+const { createUser, getUsers } = require("../controllers/userController");
 
-// Adds a GET route to return all users
-router.get("/", (req, res) => {
-  Controllers.userController.getUsers(res);
-});
-
-// Adds a POST route to create a new user
-router.post("/create", (req, res) => {
-  Controllers.userController.createUser(req.body, res);
-});
+router.post("/", createUser);
+router.get("/", getUsers);
 
 module.exports = router;

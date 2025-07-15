@@ -1,21 +1,16 @@
-const dbConnect = require("./dbConnect");
-const userRoutes = require('./routes/userRoutes');
-app.use('/api/users', userRoutes);
-
-const express = require("express");
-const app = express();
 require("dotenv").config();
+const express = require("express");
+const connectDB = require("./dbConnect");
 
-// parse requests of content-type - application / json;
+const app = express();
+connectDB();
 app.use(express.json());
+app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/posts", require("./routes/postRoutes"));
+app.use("/api/comments", require("./routes/commentRoutes"));
+app.use("/api/reactions", require("./routes/reactionRoutes"));
 
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to my MongoDB application." });
-});
+app.get("/", (req, res) => res.send("Blog backend is running"));
 
-// set port, listen for requests
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port
-${PORT}.`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
