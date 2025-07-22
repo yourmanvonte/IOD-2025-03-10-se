@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat App</title>
+  <style>
+    #chat { max-height: 200px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; }
+    #online { font-size: 0.9em; color: green; }
+    #typing { font-style: italic; }
+  </style>
+</head>
+<body>
+  <h2>Socket.IO Chat</h2>
+  <div id="online"></div>
+  <div id="chat"></div>
+  <p id="typing"></p>
+  <input id="message" placeholder="Type a message..." autocomplete="off" />
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const chat = document.getElementById("chat");
+    const messageInput = document.getElementById("message");
+    const typingDisplay = document.getElementById("typing");
+    const onlineDisplay = document.getElementById("online");
+
+    let nickname = prompt("Enter your nickname:");
+    socket.emit("set-nickname", nickname);
+
+    messageInput.addEventListener("keypress", () => {
+      socket.emit("typing");
+    });
+
+    messageInput.addEventListener("keyup", (e) => {
+      if (e.key === "Enter" && messageInput.value.trim()) {
+        const msg = messageInput.value;
+        appendMessage(`You: ${msg}`);
+        socket.emit("chat-message", { message: msg });
+        messageInput.value = "";
+      }
+    });
+
+    socket.on("chat-message", ({ message, nickname }) => {
+      appendMessage(`${nickname}: ${message}`);
+    });
+
+    socket.on("user-connected", (name) => {
+      appendMessage(`${name} joined the chat`);
+    });
+
+    socket.on("user-disconnected", (name) => {
+      appendMessage(`${name} left the chat`);
+    });
+
+    socket.on("typing", (name) => {
+      typingDisplay.innerText = `${name} is typing...`;
+      setTimeout(() => typingDisplay.innerText = "", 2000);
+    });
+
+    socket.on("online-users", (users) => {
+      onlineDisplay.innerText = `Online: ${users.join(", ")}`;
+    });
+
+    function appendMessage(msg) {
+      const el = document.createElement("div");
+      el.innerText = msg;
+      chat.appendChild(el);
+    }
+  </script>
+</body>
+</html>
